@@ -96,22 +96,35 @@
   
   .project-tech {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 0.75rem;
     margin-bottom: 1.5rem;
     
-    span {
-      background-color: var(--light-bg);
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      font-size: 0.875rem;
+    h4 {
+      font-size: 1rem;
       color: var(--text-color);
-      font-weight: 500;
-      transition: var(--transition);
+      font-weight: 600;
+      margin: 0;
+    }
+    
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
       
-      &:hover {
-        background-color: var(--primary-color);
-        color: var(--white);
+      span {
+        background-color: var(--light-bg);
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        color: var(--text-color);
+        font-weight: 500;
+        transition: var(--transition);
+        
+        &:hover {
+          background-color: var(--primary-color);
+          color: var(--white);
+        }
       }
     }
   }
