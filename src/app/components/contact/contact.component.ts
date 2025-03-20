@@ -14,7 +14,7 @@ interface ContactForm {
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
+  styleUrls: ['./contact.component.scss', '../../../styles/animations.scss'],
 })
 export class ContactComponent {
   formData: ContactForm = {

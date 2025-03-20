@@ -17,7 +17,7 @@ interface SkillCategory {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.scss'],
+  styleUrls: ['./skills.component.scss', '../../../styles/animations.scss'],
 })
 export class SkillsComponent {
   skillCategories: SkillCategory[] = [
