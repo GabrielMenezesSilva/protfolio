@@ -5,6 +5,8 @@
   background-color: var(--white);
   overflow: hidden;
   position: relative;
+  margin-top: -70px;
+  padding-top: 70px;
   
   &:before {
     content: '';
