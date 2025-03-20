@@ -1,11 +1,22 @@
 <section id="habilidades" class="skills section">
   <div class="container">
-    <h2 class="section-title">Mes Compétences</h2>
+    <h2 class="section-title animate-slide-up">Mes Compétences</h2>
     <div class="skills-grid">
-      <div class="skill-category" *ngFor="let category of skillCategories">
+      <div
+        class="skill-category animate-slide-up"
+        *ngFor="let category of skillCategories; let i = index"
+        [class.delay-1]="i === 1"
+        [class.delay-2]="i === 2"
+      >
         <h3>{{ category.name }}</h3>
         <div class="skill-items">
-          <div class="skill-item" *ngFor="let skill of category.skills">
+          <div
+            class="skill-item animate-fade-in"
+            *ngFor="let skill of category.skills; let j = index"
+            [class.delay-1]="j > 0"
+            [class.delay-2]="j > 2"
+            [class.delay-3]="j > 4"
+          >
             <div class="skill-icon">
               <i [class]="skill.icon"></i>
             </div>
@@ -13,7 +24,11 @@
               <h4>{{ skill.name }}</h4>
               <div class="skill-level">
                 <div class="progress-bar">
-                  <div class="progress" [style.width.%]="skill.level"></div>
+                  <div
+                    class="progress animate-scale-in"
+                    [style.width.%]="skill.level"
+                    [class.delay-4]="true"
+                  ></div>
                 </div>
               </div>
             </div>
