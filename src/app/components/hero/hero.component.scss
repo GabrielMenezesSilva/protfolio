@@ -59,14 +59,57 @@
   .hero-buttons {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
     
     .btn {
       padding: 1rem 2rem;
       font-size: 1.1rem;
       font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
       
       i {
         font-size: 1.2rem;
+      }
+      
+      &-primary {
+        background-color: var(--primary-color);
+        color: var(--white);
+        border: 2px solid var(--primary-color);
+        
+        &:hover {
+          background-color: var(--primary-color-hover);
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(147, 102, 57, 0.2);
+        }
+      }
+      
+      &-secondary {
+        background-color: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+        
+        &:hover {
+          background-color: var(--primary-color);
+          color: var(--white);
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(147, 102, 57, 0.2);
+        }
+      }
+      
+      &-outline {
+        background-color: var(--light-bg);
+        color: var(--text-color);
+        border: 2px solid var(--light-brown);
+        
+        &:hover {
+          background-color: var(--light-brown);
+          color: var(--white);
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(147, 102, 57, 0.2);
+        }
       }
     }
   }
@@ -176,6 +219,7 @@
       
       .btn {
         width: 100%;
+        justify-content: center;
       }
     }
   }

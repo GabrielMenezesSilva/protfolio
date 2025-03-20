@@ -91,6 +91,10 @@
     
     i {
       font-size: 1.3rem;
+      
+      &.fa-file-pdf {
+        font-size: 1.2rem;
+      }
     }
   }
 }
@@ -205,6 +209,10 @@
       
       i {
         font-size: 1.2rem;
+        
+        &.fa-file-pdf {
+          font-size: 1.1rem;
+        }
       }
     }
   }
