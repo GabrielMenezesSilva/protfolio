@@ -10,8 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class HeroComponent {
   name = 'Gabriel Menezes';
-  title = 'Développeur Front-End & Web Designer';
+  title = 'Développeur Web';
   description =
-    "Développeur passionné par la création de solutions innovantes et d'expériences numériques exceptionnelles.";
+    "Je transforme des défis techniques en solutions efficaces, en combinant expertise en développement web et approche agile.";
   imagePath = 'assets/images/figure.png';
 }
