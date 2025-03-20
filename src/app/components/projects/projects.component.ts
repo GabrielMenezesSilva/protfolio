@@ -28,13 +28,20 @@ export class ProjectsComponent {
       demo: 'https://gabriel-menezes.com',
     },
     {
-      title: 'Système de Gestion',
+      title: 'Plateforme de Gestion des Étudiants et Formations (2024)',
       description:
-        'Application web pour la gestion des clients et des projets, développée avec Angular et Node.js.',
-      image: 'assets/projects/management-system.jpg',
-      technologies: ['Angular', 'Node.js', 'MongoDB', 'TypeScript'],
-      github: 'https://github.com/seu-usuario/management-system',
-      demo: 'https://demo-management-system.com',
+        "Développement d'une plateforme de gestion scolaire adaptée aux besoins spécifiques d'une institution éducative. Fonctionnalités clés : gestion des profils d'étudiants, système de chat de groupe par formation, calendrier des cours personnalisable, portail de cours enregistrés. Application PWA avec Firebase pour la gestion des données et des utilisateurs en temps réel.",
+      image: 'assets/projects/nomades.png',
+      technologies: [
+        'Angular',
+        'Firebase',
+        'TypeScript',
+        'HTML',
+        'CSS',
+        'API REST',
+        'PWA',
+      ],
+      demo: 'https://zoomnomades-e95cd.web.app/login',
     },
     {
       title: 'Plateforme E-commerce',

@@ -11,7 +11,6 @@ import { FooterComponent } from './components/footer/footer.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
     NavbarComponent,
     HeroComponent,
     ProjectsComponent,
