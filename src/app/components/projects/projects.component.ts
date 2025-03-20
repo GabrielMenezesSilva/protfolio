@@ -20,11 +20,11 @@ interface Project {
 export class ProjectsComponent {
   projects: Project[] = [
     {
-      title: 'Portfolio WordPress',
+      title: 'Site WordPress',
       description:
         "Site professionnel développé avec WordPress, axé sur l'acquisition de clients pour le développement web.",
-      image: 'assets/projects/wordpress-portfolio.jpg',
-      technologies: ['WordPress', 'PHP', 'JavaScript', 'CSS'],
+      image: 'assets/projects/wordpress-portfolio.png',
+      technologies: ['WordPress', 'Elementor'],
       demo: 'https://gabriel-menezes.com',
     },
     {
