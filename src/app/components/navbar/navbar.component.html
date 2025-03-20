@@ -1,0 +1,48 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-brand">
+      <a (click)="scrollTo('inicio')" href="javascript:void(0)"
+        >Gabriel Menezes</a
+      >
+    </div>
+
+    <button
+      class="menu-toggle"
+      (click)="toggleMenu()"
+      [class.active]="isMenuOpen"
+    >
+      <i
+        class="fas fa-bars"
+        [class.fa-bars]="!isMenuOpen"
+        [class.fa-times]="isMenuOpen"
+      ></i>
+    </button>
+
+    <div class="nav-links" [class.active]="isMenuOpen">
+      <a
+        (click)="scrollTo('inicio')"
+        href="javascript:void(0)"
+        [class.active]="activeSection === 'inicio'"
+        >Accueil</a
+      >
+      <a
+        (click)="scrollTo('projetos')"
+        href="javascript:void(0)"
+        [class.active]="activeSection === 'projetos'"
+        >Projets</a
+      >
+      <a
+        (click)="scrollTo('habilidades')"
+        href="javascript:void(0)"
+        [class.active]="activeSection === 'habilidades'"
+        >Compétences</a
+      >
+      <a
+        (click)="scrollTo('contato')"
+        href="javascript:void(0)"
+        [class.active]="activeSection === 'contato'"
+        >Contact</a
+      >
+    </div>
+  </div>
+</nav>
