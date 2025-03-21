@@ -23,7 +23,7 @@ export class ProjectsComponent {
       title: 'Site WordPress',
       description:
         'Site professionnel développé avec WordPress et Elementor, axé sur la présentation de services de développement web. Le site comprend des sections dynamiques pour le portfolio. Design responsive et optimisé pour le SEO, garantissant une expérience utilisateur fluide sur tous les appareils.',
-      image: 'assets/projects/wordpress-portfolio.png',
+      image: 'assets/projects/wordpress-portfolio1.png',
       technologies: ['WordPress', 'Elementor', 'SEO', 'Design Responsive'],
       demo: 'https://gabriel-menezes.com',
     },
@@ -31,7 +31,7 @@ export class ProjectsComponent {
       title: 'Plateforme de Gestion des Étudiants et Formations (2024)',
       description:
         "Développement d'une plateforme de gestion scolaire adaptée aux besoins spécifiques d'une institution éducative. Fonctionnalités clés : gestion des profils d'étudiants, système de chat de groupe par formation, calendrier des cours personnalisable, portail de cours enregistrés. Application PWA avec Firebase pour la gestion des données et des utilisateurs en temps réel.",
-      image: 'assets/projects/nomades.png',
+      image: 'assets/projects/nomades1.png',
       technologies: [
         'PWA',
         'Angular',
