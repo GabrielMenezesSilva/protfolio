@@ -13,5 +13,5 @@ export class HeroComponent {
   title = 'Développeur Web';
   description =
     "Je transforme des défis techniques en solutions efficaces, en combinant expertise en développement web et approche agile.";
-  imagePath = 'assets/images/hero1.png';
+  imagePath = 'assets/images/hero2.png';
 }
