@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ElementRef,
-  ViewChild,
-  AfterViewInit,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -14,9 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss', '../../../styles/animations.scss'],
 })
-export class HeroComponent implements OnInit, AfterViewInit {
-  @ViewChild('videoBackground') videoBackground!: ElementRef<HTMLVideoElement>;
-
+export class HeroComponent implements OnInit {
   name = 'Gabriel Menezes';
   title = 'Développeur Web';
   description =
@@ -25,15 +17,5 @@ export class HeroComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     // Inicialização
-  }
-
-  ngAfterViewInit() {
-    const video = this.videoBackground.nativeElement;
-
-    video.addEventListener('loadeddata', () => {
-      video.play().catch((error) => {
-        console.error('Erro ao reproduzir vídeo:', error);
-      });
-    });
   }
 }

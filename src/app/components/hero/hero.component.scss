@@ -42,6 +42,8 @@
   }
   
   .hero-content {
+    animation: slideRightToLeft 6s ease-in-out infinite;
+    
     h1 {
       font-size: 4rem;
       line-height: 1.1;
@@ -133,14 +135,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: slideRightToLeft 6s ease-in-out infinite;
     
     img {
       width: 100%;
       max-width: 500px;
       height: auto;
-      // box-shadow: var(--shadow);
-      // animation: float 2.5s ease-in-out infinite;
     }
+  }
+}
+
+@keyframes slideRightToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  45% {
+    transform: translateX(-25px);
+  }
+  55% {
+    transform: translateX(-25px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
