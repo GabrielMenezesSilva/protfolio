@@ -189,27 +189,32 @@
 @media (max-width: 768px) {
   .hero {
     min-height: calc(100vh - 60px);
-    padding: 4rem 0;
+    padding: 2rem 0;
+    text-align: center;
     
     .container {
       grid-template-columns: 1fr;
       gap: 2rem;
-      text-align: center;
+      padding: 0 1.5rem;
     }
     
     .hero-content {
       order: 2;
+      animation: none;
       
       h1 {
         font-size: 2.5rem;
+        margin-bottom: 0.75rem;
       }
       
       h2 {
         font-size: 1.5rem;
+        margin-bottom: 1rem;
       }
       
       p {
         font-size: 1.1rem;
+        margin-bottom: 1.5rem;
         margin-left: auto;
         margin-right: auto;
       }
@@ -217,13 +222,25 @@
     
     .hero-buttons {
       justify-content: center;
+      flex-direction: column;
+      gap: 0.75rem;
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+      }
     }
     
     .hero-image {
       order: 1;
+      margin-bottom: 1rem;
+      animation: none;
       
       img {
-        max-width: 300px;
+        max-width: 250px;
+        margin: 0 auto;
       }
     }
   }
@@ -231,6 +248,12 @@
 
 @media (max-width: 576px) {
   .hero {
+    padding: 1.5rem 0;
+    
+    .container {
+      padding: 0 1rem;
+    }
+    
     .hero-content {
       h1 {
         font-size: 2rem;
@@ -246,11 +269,15 @@
     }
     
     .hero-buttons {
-      flex-direction: column;
-      
       .btn {
-        width: 100%;
-        justify-content: center;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.95rem;
+      }
+    }
+    
+    .hero-image {
+      img {
+        max-width: 200px;
       }
     }
   }

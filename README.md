@@ -1,59 +1,127 @@
-# Portfolio
+# Portfolio Pessoal
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+Este é meu portfolio pessoal desenvolvido com Angular, apresentando meus projetos, habilidades e informações de contato.
 
-## Development server
+## 🚀 Tecnologias Utilizadas
 
-To start a local development server, run:
+- Angular 19
+- TypeScript
+- SCSS
+- Font Awesome
+- EmailJS (para o formulário de contato)
+
+## 🛠️ Como Executar o Projeto
+
+1. Clone o repositório:
+
+```bash
+git clone [URL_DO_REPOSITÓRIO]
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Inicie o servidor de desenvolvimento:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4. Acesse o projeto em `http://localhost:4200`
 
-## Code scaffolding
+## 📝 Guia de Manutenção
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Adicionar ou Modificar Habilidades
 
-```bash
-ng generate component component-name
+As habilidades são gerenciadas no arquivo `src/app/components/skills/skills.component.ts`. Para adicionar ou modificar habilidades:
+
+1. Localize o array `skillCategories`
+2. Cada categoria tem a seguinte estrutura:
+
+```typescript
+{
+  name: 'Nome da Categoria',
+  icon: 'classe-do-icone',
+  skills: [
+    {
+      name: 'Nome da Habilidade',
+      icon: 'classe-do-icone',
+      level: 85, // Nível de 0 a 100
+      description: 'Descrição da habilidade'
+    }
+  ]
+}
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3. Para adicionar uma nova categoria, adicione um novo objeto ao array `skillCategories`
+4. Para adicionar uma nova habilidade, adicione um novo objeto ao array `skills` da categoria desejada
 
-```bash
-ng generate --help
+### Adicionar Novos Projetos
+
+Os projetos são gerenciados no arquivo `src/app/components/projects/projects.component.ts`. Para adicionar um novo projeto:
+
+1. Localize o array `projects`
+2. Adicione um novo objeto seguindo a estrutura:
+
+```typescript
+{
+  title: 'Título do Projeto',
+  description: 'Descrição detalhada do projeto',
+  image: 'caminho/para/imagem.png',
+  technologies: ['Tecnologia 1', 'Tecnologia 2'],
+  github: 'URL_DO_GITHUB', // opcional
+  demo: 'URL_DO_DEMO' // opcional
+}
 ```
 
-## Building
+3. Adicione a imagem do projeto na pasta `src/assets/projects/`
 
-To build the project run:
+### Modificar Informações Pessoais
 
-```bash
-ng build
+As informações pessoais podem ser modificadas nos seguintes arquivos:
+
+1. Nome e título: `src/app/components/hero/hero.component.ts`
+2. Links sociais: `src/app/components/contact/contact.component.html`
+3. CV: Atualize o link no arquivo `src/app/components/hero/hero.component.html`
+
+## 🏗️ Estrutura do Projeto
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── hero/         # Seção inicial
+│   │   ├── projects/     # Seção de projetos
+│   │   ├── skills/       # Seção de habilidades
+│   │   ├── contact/      # Seção de contato
+│   │   ├── navbar/       # Barra de navegação
+│   │   └── footer/       # Rodapé
+│   └── services/         # Serviços da aplicação
+├── assets/
+│   ├── images/          # Imagens gerais
+│   ├── projects/        # Imagens dos projetos
+│   ├── videos/          # Vídeos
+│   └── icons/           # Ícones
+└── styles/              # Estilos globais
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 📦 Build para Produção
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Para gerar uma versão de produção do site:
 
 ```bash
-ng test
+ng build --configuration production
 ```
 
-## Running end-to-end tests
+Os arquivos compilados serão gerados na pasta `dist/portfolio/`.
 
-For end-to-end (e2e) testing, run:
+## 🤝 Contribuindo
 
-```bash
-ng e2e
-```
+Sinta-se à vontade para contribuir com o projeto através de pull requests ou reportando issues.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 📄 Licença
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.

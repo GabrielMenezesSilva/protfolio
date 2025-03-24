@@ -2,7 +2,13 @@
   <div class="container">
     <h2 class="section-title animate-slide-up">Mes Compétences</h2>
     <div class="tabs-container animate-slide-up delay-2">
-      <div class="tabs-header">
+      <div
+        class="tabs-header"
+        #tabsHeader
+        (scroll)="onScroll()"
+        [class.has-scroll-left]="hasScrollLeft"
+        [class.has-scroll-right]="hasScrollRight"
+      >
         <button
           *ngFor="let category of skillCategories; let i = index"
           class="tab-button"
@@ -16,14 +22,14 @@
 
       <div class="tab-content">
         <div
-          class="skill-category"
           *ngFor="let category of skillCategories; let i = index"
+          class="skill-category"
           [class.active]="activeTab === i"
         >
           <div class="skill-items">
             <div
-              class="skill-item animate-fade-in"
               *ngFor="let skill of category.skills; let j = index"
+              class="skill-item animate-fade-in"
               [class.delay-1]="j > 0"
               [class.delay-2]="j > 2"
               [class.delay-3]="j > 4"

@@ -1,5 +1,13 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  PLATFORM_ID,
+  Inject,
+} from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 interface Skill {
   name: string;
@@ -21,8 +29,12 @@ interface SkillCategory {
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss'],
 })
-export class SkillsComponent {
+export class SkillsComponent implements OnInit, AfterViewInit {
+  @ViewChild('tabsHeader') tabsHeader!: ElementRef;
+
   activeTab = 0;
+  hasScrollLeft = false;
+  hasScrollRight = false;
 
   skillCategories: SkillCategory[] = [
     {
@@ -201,7 +213,33 @@ export class SkillsComponent {
     },
   ];
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  ngOnInit() {}
+
+  ngAfterViewInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkScroll();
+      window.addEventListener('resize', () => this.checkScroll());
+    }
+  }
+
   setActiveTab(index: number) {
     this.activeTab = index;
+  }
+
+  checkScroll() {
+    if (isPlatformBrowser(this.platformId) && this.tabsHeader?.nativeElement) {
+      const header = this.tabsHeader.nativeElement;
+      this.hasScrollLeft = header.scrollLeft > 0;
+      this.hasScrollRight =
+        header.scrollLeft < header.scrollWidth - header.clientWidth;
+    }
+  }
+
+  onScroll() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkScroll();
+    }
   }
 }
