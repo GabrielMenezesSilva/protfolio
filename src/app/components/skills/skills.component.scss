@@ -30,50 +30,91 @@
   }
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  position: relative;
-  z-index: 1;
+.tabs-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.skill-category {
-  background-color: var(--white);
-  padding: 2rem;
+.tabs-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0;
+  background: var(--light-bg);
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tab-button {
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
   border-radius: 8px;
-  box-shadow: var(--shadow);
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   transition: var(--transition);
-  border: 1px solid var(--border-color);
   position: relative;
-  z-index: 1;
+  flex: 1;
+  justify-content: center;
   
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  i {
+    font-size: 1.1rem;
   }
   
-  h3 {
+  &:hover {
+    background: var(--light-brown);
+    color: var(--white);
+  }
+  
+  &.active {
+    background: var(--white);
     color: var(--primary-color);
-    margin-bottom: 2rem;
-    font-size: 1.75rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     
-    i {
-      font-size: 2rem;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--primary-color);
     }
   }
 }
 
+.tab-content {
+  position: relative;
+  min-height: 400px;
+  padding: 2rem;
+}
+
+.skill-category {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  
+  &.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .skill-items {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
@@ -83,9 +124,15 @@
   gap: 1.5rem;
   position: relative;
   z-index: 2;
+  padding: 1.5rem;
+  background: var(--light-bg);
+  border-radius: 12px;
+  transition: var(--transition);
   
   &:hover {
     z-index: 1000;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   }
   
   .skill-icon {
@@ -94,9 +141,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--light-bg);
+    background-color: var(--white);
     border-radius: 8px;
     transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     
     i {
       font-size: 1.75rem;
@@ -137,7 +185,7 @@
   .progress-bar {
     width: 100%;
     height: 8px;
-    background-color: var(--light-bg);
+    background-color: var(--white);
     border-radius: 4px;
     overflow: hidden;
     
@@ -220,8 +268,18 @@
 }
 
 @media (max-width: 992px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .tabs-header {
+    gap: 0.25rem;
+    padding: 0.5rem;
+  }
+  
+  .tab-button {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.9rem;
+    
+    i {
+      font-size: 1rem;
+    }
   }
 }
 
@@ -240,26 +298,39 @@
     margin-bottom: 3rem;
   }
 
-  .skills-grid {
-    grid-template-columns: 1fr;
-    max-width: 500px;
-    margin: 0 auto;
+  .tabs-container {
+    padding: 0;
+    margin: 0 1rem;
   }
   
-  .skill-category {
-    padding: 1.5rem;
+  .tabs-header {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+  
+  .tab-button {
+    flex: 0 1 auto;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    min-width: 120px;
     
-    h3 {
-      font-size: 1.5rem;
-      
-      i {
-        font-size: 1.75rem;
-      }
+    i {
+      font-size: 1rem;
     }
+  }
+  
+  .tab-content {
+    padding: 1.5rem;
+  }
+  
+  .skill-items {
+    grid-template-columns: 1fr;
   }
   
   .skill-item {
     gap: 1rem;
+    padding: 1rem;
     
     .skill-icon {
       width: 40px;

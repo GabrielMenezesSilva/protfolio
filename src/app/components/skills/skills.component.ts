@@ -22,6 +22,8 @@ interface SkillCategory {
   styleUrls: ['./skills.component.scss'],
 })
 export class SkillsComponent {
+  activeTab = 0;
+
   skillCategories: SkillCategory[] = [
     {
       name: 'Langages',
@@ -198,4 +200,8 @@ export class SkillsComponent {
       ],
     },
   ];
+
+  setActiveTab(index: number) {
+    this.activeTab = index;
+  }
 }
