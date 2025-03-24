@@ -12,7 +12,10 @@
         [class.delay-1]="i === 1"
         [class.delay-2]="i === 2"
       >
-        <h3>{{ category.name }}</h3>
+        <h3>
+          <i [class]="category.icon"></i>
+          {{ category.name }}
+        </h3>
         <div class="skill-items">
           <div
             class="skill-item animate-fade-in"
