@@ -2,52 +2,36 @@
   <div class="container">
     <h2 class="section-title animate-slide-up">Contactez-moi</h2>
     <div class="contact-content">
-      <div class="contact-info">
-        <div class="contact-item animate-slide-up">
-          <i class="fas fa-envelope"></i>
-          <div>
-            <h3>Email</h3>
-            <p>mrgabrielmenezes&#64;icloud.com</p>
-          </div>
-        </div>
-        <div class="contact-item animate-slide-up delay-1">
-          <i class="fas fa-phone"></i>
-          <div>
-            <h3>Téléphone</h3>
-            <p>+41 78 318 7609</p>
-          </div>
-        </div>
-        <div class="contact-item animate-slide-up delay-2">
-          <i class="fas fa-map-marker-alt"></i>
-          <div>
-            <h3>Localisation</h3>
-            <p>Genève, CH</p>
-          </div>
-        </div>
-        <div class="social-links animate-slide-up delay-3">
+      <div class="social-section animate-slide-up">
+        <h3>Connectez-vous avec moi</h3>
+        <div class="social-grid">
           <a
             href="https://github.com/GabrielMenezesSilva"
             target="_blank"
             rel="noopener noreferrer"
-            class="social-link animate-pulse"
+            class="social-card github"
           >
-            <i class="fab fa-github"></i>
+            <div class="social-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <div class="social-info">
+              <h4>GitHub</h4>
+              <p>Voir mes projets</p>
+            </div>
           </a>
           <a
             href="https://linkedin.com/in/lucasgabrielmenezesdasilva"
             target="_blank"
             rel="noopener noreferrer"
-            class="social-link animate-pulse delay-1"
+            class="social-card linkedin"
           >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://drive.google.com/file/d/1lxB8U0osOieWmKNvFH18IC98YUHSn_Ch/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link animate-pulse delay-2"
-          >
-            <i class="fas fa-file-pdf"></i>
+            <div class="social-icon">
+              <i class="fab fa-linkedin"></i>
+            </div>
+            <div class="social-info">
+              <h4>LinkedIn</h4>
+              <p>Mon réseau professionnel</p>
+            </div>
           </a>
         </div>
       </div>
@@ -63,6 +47,7 @@
             name="name"
             [(ngModel)]="formData.name"
             required
+            [disabled]="isLoading"
           />
         </div>
         <div class="form-group animate-fade-in delay-1">
@@ -73,6 +58,7 @@
             name="email"
             [(ngModel)]="formData.email"
             required
+            [disabled]="isLoading"
           />
         </div>
         <div class="form-group animate-fade-in delay-2">
@@ -83,6 +69,7 @@
             name="subject"
             [(ngModel)]="formData.subject"
             required
+            [disabled]="isLoading"
           />
         </div>
         <div class="form-group animate-fade-in delay-3">
@@ -92,11 +79,25 @@
             name="message"
             [(ngModel)]="formData.message"
             required
+            [disabled]="isLoading"
           ></textarea>
         </div>
-        <button type="submit" class="btn btn-primary animate-fade-in delay-4">
-          Envoyer le Message
+        <button
+          type="submit"
+          class="btn btn-primary animate-fade-in delay-4"
+          [disabled]="isLoading"
+        >
+          <span *ngIf="!isLoading">Envoyer le Message</span>
+          <span *ngIf="isLoading">Envoi en cours...</span>
         </button>
+
+        <div *ngIf="showSuccess" class="alert alert-success animate-fade-in">
+          Message envoyé avec succès!
+        </div>
+
+        <div *ngIf="showError" class="alert alert-error animate-fade-in">
+          {{ errorMessage }}
+        </div>
       </form>
     </div>
   </div>
