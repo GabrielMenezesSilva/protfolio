@@ -18,6 +18,9 @@ interface Project {
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent {
+  readonly projectsPerPage = 2; // Alterado para 2 projetos por página
+  currentPage = 1;
+
   projects: Project[] = [
     {
       title: 'Site WordPress',
@@ -43,14 +46,44 @@ export class ProjectsComponent {
       ],
       demo: 'https://zoomnomades-e95cd.web.app/login',
     },
-    // {
-    //   title: 'Plateforme E-commerce',
-    //   description:
-    //     "Plateforme e-commerce complète avec panier d'achat, paiements et zone administrative.",
-    //   image: 'assets/projects/ecommerce.jpg',
-    //   technologies: ['Angular', 'Node.js', 'PostgreSQL', 'Stripe'],
-    //   github: 'https://github.com/seu-usuario/ecommerce',
-    //   demo: 'https://demo-ecommerce.com',
-    // },
+    {
+      title: 'Portfolio Personnel',
+      description:
+        'Portfolio moderne développé avec Angular, présentant mes projets et compétences de manière interactive. Fonctionnalités : système de tabs pour les compétences, pagination des projets, design responsive, animations fluides, formulaire de contact avec EmailJS. Architecture modulaire et performance optimisée.',
+      image: 'assets/projects/wordpress-portfolio3.png',
+      technologies: [
+        'Angular',
+        'TypeScript',
+        'SCSS',
+        'EmailJS',
+        'Animations CSS',
+        'Design Responsive',
+      ],
+      github: 'https://github.com/GabrielMenezesSilva/portfolio',
+    },
   ];
+
+  get totalPages(): number {
+    return Math.ceil(this.projects.length / this.projectsPerPage);
+  }
+
+  get paginatedProjects(): Project[] {
+    const startIndex = (this.currentPage - 1) * this.projectsPerPage;
+    const endIndex = startIndex + this.projectsPerPage;
+    return this.projects.slice(startIndex, endIndex);
+  }
+
+  get pages(): number[] {
+    return Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  }
+
+  changePage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      // Scroll suave para o topo da seção de projetos
+      document
+        .getElementById('projetos')
+        ?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

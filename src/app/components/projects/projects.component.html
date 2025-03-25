@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="section-title">Mes Projets</h2>
     <div class="projects-grid">
-      <div class="project-card" *ngFor="let project of projects">
+      <div class="project-card" *ngFor="let project of paginatedProjects">
         <div class="project-image">
           <img [src]="project.image" [alt]="project.title" />
         </div>
@@ -20,7 +20,11 @@
               [href]="project.github"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn-secondary"
+              [class]="
+                project.demo
+                  ? 'project-btn project-btn-secondary'
+                  : 'project-btn project-btn-primary'
+              "
               *ngIf="project.github"
             >
               <i class="fab fa-github"></i> GitHub
@@ -29,14 +33,44 @@
               [href]="project.demo"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn-primary"
+              class="project-btn project-btn-primary"
               *ngIf="project.demo"
             >
-              <i class="fas fa-external-link-alt"></i> Consulter
+              <i class="fas fa-external-link-alt"></i> Voir le projet
             </a>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Paginação -->
+    <div class="projects-pagination" *ngIf="totalPages > 1">
+      <button
+        class="page-button"
+        [class.active]="currentPage === 1"
+        (click)="changePage(currentPage - 1)"
+        [disabled]="currentPage === 1"
+      >
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <button
+        *ngFor="let page of pages"
+        class="page-button"
+        [class.active]="currentPage === page"
+        (click)="changePage(page)"
+      >
+        {{ page }}
+      </button>
+
+      <button
+        class="page-button"
+        [class.active]="currentPage === totalPages"
+        (click)="changePage(currentPage + 1)"
+        [disabled]="currentPage === totalPages"
+      >
+        <i class="fas fa-chevron-right"></i>
+      </button>
     </div>
   </div>
 </section>

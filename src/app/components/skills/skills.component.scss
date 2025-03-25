@@ -136,6 +136,12 @@
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    
+    .skill-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
   }
   
   .skill-icon {
@@ -154,22 +160,6 @@
       font-size: 1.75rem;
       color: var(--primary-color);
       transition: var(--transition);
-    }
-  }
-  
-  &:hover {
-    .skill-icon {
-      background-color: var(--primary-color);
-      
-      i {
-        color: var(--white);
-      }
-    }
-
-    .skill-tooltip {
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(-10px);
     }
   }
   
@@ -219,10 +209,10 @@
 }
 
 .skill-tooltip {
-  position: fixed;
+  position: absolute;
   left: 50%;
-  bottom: 100%;
-  transform: translateX(-50%) translateY(-10px);
+  bottom: calc(100% + 15px);
+  transform: translateX(-50%) translateY(10px);
   background-color: var(--primary-color);
   color: var(--white);
   padding: 1.25rem;
@@ -233,8 +223,7 @@
   visibility: hidden;
   transition: all 0.3s ease;
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  margin-bottom: 0.75rem;
-  line-height: 1.6;
+  z-index: 100;
   pointer-events: none;
 
   .tooltip-content {
