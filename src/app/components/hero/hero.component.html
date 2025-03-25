@@ -6,8 +6,12 @@
     loop
     playsinline
     preload="auto"
-    src="assets/videos/video2.mp4"
-  ></video>
+    [src]="videoUrl"
+    (error)="onVideoError($event)"
+  >
+    <source [src]="videoUrl" type="video/mp4" />
+    Seu navegador não suporta o elemento de vídeo.
+  </video>
   <div class="container">
     <div class="hero-content">
       <h1 class="animate-slide-up">Bonjour, je suis {{ name }}</h1>

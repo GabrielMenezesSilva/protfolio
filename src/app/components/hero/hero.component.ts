@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CloudinaryService } from '../../services/cloudinary.service';
 
 @Component({
   selector: 'app-hero',
@@ -14,8 +15,15 @@ export class HeroComponent implements OnInit {
   description =
     'Je transforme des défis techniques en solutions efficaces, en combinant expertise en développement web et approche agile.';
   imagePath = 'assets/images/hero2.png';
+  videoUrl: string = '';
+
+  constructor(private cloudinaryService: CloudinaryService) {}
 
   ngOnInit() {
-    // Inicialização
+    this.videoUrl = this.cloudinaryService.getVideoUrl('video2_blkrfi');
+  }
+
+  onVideoError(event: any) {
+    console.error('Erro ao carregar o vídeo:', event);
   }
 }
