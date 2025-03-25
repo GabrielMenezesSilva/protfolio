@@ -20,6 +20,7 @@ interface Project {
 export class ProjectsComponent {
   readonly projectsPerPage = 2; // Alterado para 2 projetos por página
   currentPage = 1;
+  isTransitioning = false;
 
   projects: Project[] = [
     {
@@ -78,12 +79,14 @@ export class ProjectsComponent {
   }
 
   changePage(page: number): void {
-    if (page >= 1 && page <= this.totalPages) {
-      this.currentPage = page;
-      // Scroll suave para o topo da seção de projetos
-      document
-        .getElementById('projetos')
-        ?.scrollIntoView({ behavior: 'smooth' });
+    if (page >= 1 && page <= this.totalPages && !this.isTransitioning) {
+      this.isTransitioning = true;
+
+      // Pequeno delay antes de mudar a página
+      setTimeout(() => {
+        this.currentPage = page;
+        this.isTransitioning = false;
+      }, 300);
     }
   }
 }
