@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+  Component,
+  OnInit,
+  HostListener,
+  Inject,
+  PLATFORM_ID,
+} from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 interface Project {
   title: string;
@@ -17,10 +23,37 @@ interface Project {
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
 })
-export class ProjectsComponent {
-  readonly projectsPerPage = 2; // Alterado para 2 projetos por página
+export class ProjectsComponent implements OnInit {
+  projectsPerPage = 2;
   currentPage = 1;
   isTransitioning = false;
+  isMobile = false;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  @HostListener('window:resize')
+  onResize() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkScreenSize();
+    }
+  }
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkScreenSize();
+    }
+  }
+
+  private checkScreenSize() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.isMobile = window.innerWidth <= 768;
+      this.projectsPerPage = this.isMobile ? 1 : 2;
+      // Ajusta a página atual se necessário
+      if (this.isMobile && this.currentPage > this.totalPages) {
+        this.currentPage = this.totalPages;
+      }
+    }
+  }
 
   projects: Project[] = [
     {
@@ -82,7 +115,6 @@ export class ProjectsComponent {
     if (page >= 1 && page <= this.totalPages && !this.isTransitioning) {
       this.isTransitioning = true;
 
-      // Pequeno delay antes de mudar a página
       setTimeout(() => {
         this.currentPage = page;
         this.isTransitioning = false;

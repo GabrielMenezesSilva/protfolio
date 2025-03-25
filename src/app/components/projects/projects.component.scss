@@ -201,7 +201,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .projects {
     padding: 3rem 0;
   }
@@ -212,7 +212,7 @@
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     padding: 0 1rem;
     gap: 1.5rem;
   }
@@ -248,41 +248,38 @@
 .projects-pagination {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 0.5rem;
   margin-top: 3rem;
   
   .page-button {
     width: 40px;
     height: 40px;
+    border: none;
+    border-radius: 8px;
+    background: var(--light-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    background: var(--white);
-    color: var(--text-color);
-    font-weight: 600;
-    transition: var(--transition);
-    border: 2px solid transparent;
-    cursor: pointer;
     
-    &:hover {
+    &:hover:not(:disabled) {
       background: var(--primary-color);
       color: var(--white);
-    }
-    
-    &.active {
-      border-color: var(--primary-color);
-      color: var(--primary-color);
     }
     
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
-      
-      &:hover {
-        background: var(--white);
-        color: var(--text-color);
-      }
+    }
+    
+    &.active {
+      background: var(--primary-color);
+      color: var(--white);
+      font-weight: 600;
     }
   }
 }
