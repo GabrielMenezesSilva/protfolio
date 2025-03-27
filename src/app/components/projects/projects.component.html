@@ -12,7 +12,17 @@
           <div class="project-tech">
             <h4>Technologies utilisées :</h4>
             <div class="tech-tags">
-              <span *ngFor="let tech of project.technologies">{{ tech }}</span>
+              <div
+                *ngFor="let tech of project.technologies"
+                class="tech-tag"
+                [title]="getTechLogo(tech)?.name"
+              >
+                <i
+                  *ngIf="getTechLogo(tech)"
+                  [class]="getTechLogo(tech)?.logo"
+                ></i>
+                <span>{{ getTechLogo(tech)?.name || tech }}</span>
+              </div>
             </div>
           </div>
           <div class="project-links">
@@ -25,18 +35,21 @@
                   ? 'project-btn project-btn-secondary'
                   : 'project-btn project-btn-primary'
               "
+              [class.compact]="project.demo"
               *ngIf="project.github"
             >
-              <i class="fab fa-github"></i> GitHub
+              <i class="fab fa-github"></i> <span>GitHub</span>
             </a>
             <a
               [href]="project.demo"
               target="_blank"
               rel="noopener noreferrer"
               class="project-btn project-btn-primary"
+              [class.compact]="project.github"
               *ngIf="project.demo"
             >
-              <i class="fas fa-external-link-alt"></i> Voir le projet
+              <i class="fas fa-external-link-alt"></i>
+              <span>Voir le projet</span>
             </a>
           </div>
         </div>
