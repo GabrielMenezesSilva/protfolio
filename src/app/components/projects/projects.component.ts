@@ -24,7 +24,7 @@ interface Project {
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent implements OnInit {
-  projectsPerPage = 2;
+  projectsPerPage = 3;
   currentPage = 1;
   isTransitioning = false;
   isMobile = false;
@@ -47,7 +47,7 @@ export class ProjectsComponent implements OnInit {
   private checkScreenSize() {
     if (isPlatformBrowser(this.platformId)) {
       this.isMobile = window.innerWidth <= 768;
-      this.projectsPerPage = this.isMobile ? 1 : 2;
+      this.projectsPerPage = this.isMobile ? 1 : 3;
       // Ajusta a página atual se necessário
       if (this.isMobile && this.currentPage > this.totalPages) {
         this.currentPage = this.totalPages;
