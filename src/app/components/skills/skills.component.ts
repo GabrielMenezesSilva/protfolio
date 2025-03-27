@@ -74,7 +74,7 @@ export class SkillsComponent implements OnInit, AfterViewInit {
         {
           name: 'Java',
           icon: 'fab fa-java',
-          level: 40,
+          level: 10,
           description: 'Formation en cours',
         },
       ],
@@ -98,7 +98,7 @@ export class SkillsComponent implements OnInit, AfterViewInit {
         {
           name: 'React',
           icon: 'fab fa-react',
-          level: 50,
+          level: 40,
           description: 'Connaissances de base en React',
         },
       ],
@@ -110,13 +110,13 @@ export class SkillsComponent implements OnInit, AfterViewInit {
         {
           name: 'Firebase',
           icon: 'fas fa-fire',
-          level: 80,
+          level: 85,
           description: 'Développement backend avec Firebase',
         },
         {
           name: 'MySQL',
           icon: 'fas fa-database',
-          level: 75,
+          level: 40,
           description: 'Gestion de bases de données relationnelles',
         },
         {
@@ -146,7 +146,7 @@ export class SkillsComponent implements OnInit, AfterViewInit {
         {
           name: 'WooCommerce',
           icon: 'fas fa-store',
-          level: 80,
+          level: 50,
           description: 'Développement e-commerce avec WooCommerce',
         },
       ],
