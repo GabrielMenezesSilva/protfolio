@@ -68,7 +68,7 @@ export class SkillsComponent implements OnInit, AfterViewInit {
         {
           name: 'Python',
           icon: 'fab fa-python',
-          level: 75,
+          level: 40,
           description: "Développement d'applications avec Python",
         },
         {
