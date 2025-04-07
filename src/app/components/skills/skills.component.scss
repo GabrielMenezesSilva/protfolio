@@ -160,6 +160,11 @@
       font-size: 1.75rem;
       color: var(--primary-color);
       transition: var(--transition);
+      
+      &.devicon-go-original {
+        font-size: 2rem;
+        color: #00ADD8;
+      }
     }
   }
   

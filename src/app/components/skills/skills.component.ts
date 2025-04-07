@@ -72,8 +72,8 @@ export class SkillsComponent implements OnInit, AfterViewInit {
           description: "Développement d'applications avec Python",
         },
         {
-          name: 'Java',
-          icon: 'fab fa-java',
+          name: 'Go',
+          icon: 'devicon-go-original-wordmark',
           level: 10,
           description: 'Formation en cours',
         },
