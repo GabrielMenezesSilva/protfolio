@@ -72,9 +72,9 @@ export class SkillsComponent implements OnInit, AfterViewInit {
           description: "Développement d'applications avec Python",
         },
         {
-          name: 'Go',
-          icon: 'devicon-go-original-wordmark',
-          level: 10,
+          name: 'NodeJS',
+          icon: 'devicon-nodejs-plain',
+          level: 20,
           description: 'Formation en cours',
         },
       ],
@@ -114,7 +114,7 @@ export class SkillsComponent implements OnInit, AfterViewInit {
           description: 'Développement backend avec Firebase',
         },
         {
-          name: 'MySQL',
+          name: 'SQL',
           icon: 'fas fa-database',
           level: 40,
           description: 'Gestion de bases de données relationnelles',
